@@ -38,8 +38,11 @@
 ;--------------------------------
 ;Pages
 
+  !define MUI_HEADERIMAGE 
+  !define MUI_HEADERIMAGE_BITMAP "portada.bmp"
+
   !insertmacro MUI_PAGE_WELCOME
-  !insertmacro MUI_PAGE_LICENSE "${NSISDIR}\Docs\Modern UI\License.txt"
+  !insertmacro MUI_PAGE_LICENSE "License.txt"
   !insertmacro MUI_PAGE_COMPONENTS
   !insertmacro MUI_PAGE_DIRECTORY
 

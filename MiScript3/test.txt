@@ -1,0 +1,3 @@
+Hola mundo!
+
+Eres un instalador NSIS LOS Angeles profesional B)
