@@ -1,0 +1,72 @@
+/******************** Script Configuration *******************/
+buildscript {
+ repositories {
+ jcenter()
+ 
+    maven {
+        url "https://sandec.bintray.com/repo"
+        //url "https://mvnrepository.com/artifact/com.jprotechnologies.jpro/jpro-plugin-gradle"
+    }
+ }
+ dependencies {
+    // Error con Gradle 7.0 Deprecated??
+    classpath 'com.sandec.jpro:jpro-plugin-gradle:2019.2.6'
+    //classpath 'com.jprotechnologies.jpro:jpro-plugin-gradle:0.0.1'
+ }
+}
+
+plugins {
+    id 'java'
+    id 'application'    
+    id 'org.openjfx.javafxplugin' version '0.0.9'
+}
+
+sourceCompatibility = '1.8'
+repositories{
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.hsqldb:hsqldb:2.5.1'
+    implementation 'org.eclipse.persistence:javax.persistence:2.1.0'
+    implementation 'org.eclipse.persistence:org.eclipse.persistence.core:2.5.2'
+    implementation 'org.eclipse.persistence:org.eclipse.persistence.asm:2.5.2'
+    implementation 'org.eclipse.persistence:org.eclipse.persistence.antlr:2.5.2'
+    implementation 'org.eclipse.persistence:org.eclipse.persistence.jpa:2.5.2'
+    implementation 'org.eclipse.persistence:org.eclipse.persistence.jpa.jpql:2.5.2'
+    //implementation group: 'com.jprotechnologies.jpro', name: 'jpro-plugin-gradle', version: '2018.1.0-SNAPSHOT'
+    //implementation group: 'com.jprotechnologies.jpro', name: 'jpro-plugin-gradle', version: '0.0.1'
+    //implementation group: 'com.jprotechnologies.jpro', name: 'jpro-plugin-gradle', version: '0.1.12-SNAPSHOT'
+    implementation 'com.sandec.jpro:jpro-plugin-gradle:2018.1.7'
+}
+
+javafx {
+    version = "11"
+    modules = ['javafx.controls','javafx.fxml','javafx.base','javafx.graphics','javafx.media','javafx.web']
+}
+
+/**
+* App Main Class */
+application {
+    mainClassName = 'AgendaJPro.Main'
+}
+
+jar {
+    baseName = "AgendaJPro"
+    manifest {
+        attributes 'Main-Class':'AgendaJPro.Main'
+    }
+}
+
+/**
+****************** jpro Configuration *******************/
+apply plugin: 'com.sandec.jpro'
+/**
+* jpro settings*/
+jpro {
+    // for debugging
+    // JVMArgs << '-agentlib:jdwp=transport=dt_socket,server=n,address=5006,suspend=y'
+    JVMArgs << '-Xmx1000m'
+    //jpro server port
+    port = 8080
+}
