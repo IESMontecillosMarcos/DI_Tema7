@@ -67,7 +67,7 @@ goto fail
 :execute
 @rem Setup the command line
 
-set CLASSPATH=%APP_HOME%\lib\AppAgendaJPro.jar;%APP_HOME%\lib\jpro-webapi-2019.2.6.jar;%APP_HOME%\lib\hsqldb-2.5.1.jar;%APP_HOME%\lib\org.eclipse.persistence.jpa-2.5.2.jar;%APP_HOME%\lib\javax.persistence-2.1.0.jar;%APP_HOME%\lib\org.eclipse.persistence.core-2.5.2.jar;%APP_HOME%\lib\org.eclipse.persistence.asm-2.5.2.jar;%APP_HOME%\lib\org.eclipse.persistence.antlr-2.5.2.jar;%APP_HOME%\lib\org.eclipse.persistence.jpa.jpql-2.5.2.jar;%APP_HOME%\lib\javafx-fxml-11-win.jar;%APP_HOME%\lib\javafx-web-11-win.jar;%APP_HOME%\lib\javafx-media-11-win.jar;%APP_HOME%\lib\javafx-media-11.jar;%APP_HOME%\lib\javafx-controls-11-win.jar;%APP_HOME%\lib\javafx-controls-11.jar;%APP_HOME%\lib\javafx-graphics-11-win.jar;%APP_HOME%\lib\javafx-graphics-11.jar;%APP_HOME%\lib\javafx-base-11-win.jar;%APP_HOME%\lib\javafx-base-11.jar
+set CLASSPATH=%APP_HOME%\lib\AppAgendaJPro.jar;%APP_HOME%\lib\jpro-webapi-2019.2.6.jar;%APP_HOME%\lib\hsqldb-2.5.1.jar;%APP_HOME%\lib\org.eclipse.persistence.jpa-2.5.2.jar;%APP_HOME%\lib\javax.persistence-2.1.0.jar;%APP_HOME%\lib\org.eclipse.persistence.core-2.5.2.jar;%APP_HOME%\lib\org.eclipse.persistence.asm-2.5.2.jar;%APP_HOME%\lib\org.eclipse.persistence.antlr-2.5.2.jar;%APP_HOME%\lib\org.eclipse.persistence.jpa.jpql-2.5.2.jar;%APP_HOME%\lib\javafx-web-11-win.jar;%APP_HOME%\lib\javafx-fxml-11-win.jar;%APP_HOME%\lib\javafx-controls-11-win.jar;%APP_HOME%\lib\javafx-controls-11.jar;%APP_HOME%\lib\javafx-media-11-win.jar;%APP_HOME%\lib\javafx-media-11.jar;%APP_HOME%\lib\javafx-graphics-11-win.jar;%APP_HOME%\lib\javafx-graphics-11.jar;%APP_HOME%\lib\javafx-base-11-win.jar;%APP_HOME%\lib\javafx-base-11.jar
 
 
 @rem Execute AppAgendaJPro
