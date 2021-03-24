@@ -1,11 +1,7 @@
 AppAgendaJPro/Provincia.java
  AppAgendaJPro.Provincia
-AppAgendaJPro/ConsultaProvincias.java
- AppAgendaJPro.ConsultaProvincias
 AppAgendaJPro/Persona.java
  AppAgendaJPro.Persona
-AppAgendaJPro/AppAgenda.java
- AppAgendaJPro.AppAgenda
 AppAgendaJPro/AgendaViewController.java
  AppAgendaJPro.AgendaViewController
 AppAgendaJPro/PersonaDetalleViewController.java

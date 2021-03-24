@@ -5,10 +5,11 @@
  */
 package AppAgendaJPro;
 
-import java.io.IOException;
+import com.jpro.webapi.JProApplication;
+import java.net.URL;
 import java.sql.DriverManager;
 import java.sql.SQLException;
-import javafx.application.Application;
+import static javafx.application.Application.launch;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
@@ -22,50 +23,48 @@ import javax.persistence.Persistence;
  *
  * @author Marcos Gonzalez Leon
  */
-public class Main extends Application {
-    
+public class Main extends JProApplication {
+
     private EntityManagerFactory emf;
     private EntityManager em;
-    
-    @Override
-    public void start(Stage primaryStage) throws IOException {
-        
-        StackPane rootMain = new StackPane();
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/AgendaView.fxml"));
-        Pane rootAgendaView=fxmlLoader.load();
-        rootMain.getChildren().add(rootAgendaView);       
-                
-        // Almacenar objeta de clase para su uso.
-        AgendaViewController agendaViewController = (AgendaViewController)fxmlLoader.getController();
-        
-        // ConexiÃ³n a la BD creando los objetos EntityManager y
-        // EntityManagerFactory
-        emf=Persistence.createEntityManagerFactory("AppAgendaPU");
-        em=emf.createEntityManager();
 
-        // Set EntityManager al Controlador.
+    @Override
+    public void start(Stage primaryStage) throws Exception {
+        StackPane rootMain = new StackPane();
+        //URL myFxmlURL = ClassLoader.getSystemResource("/fxml/AgendaView.fxml");
+        //FXMLLoader loader = new FXMLLoader(myFxmlURL);
+        //Pane rootAgendaView = loader.load();
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/AgendaView.fxml"));
+        Pane rootAgendaView = fxmlLoader.load();        
+        rootMain.getChildren().add(rootAgendaView);
+
+        emf = Persistence.createEntityManagerFactory("AppAgendaPU");
+        em = emf.createEntityManager();
+        
+        
+        //Carga del EntityManager, etc…
+        //AgendaViewController agendaViewController = (AgendaViewController) loader.getController();
+        AgendaViewController agendaViewController = (AgendaViewController) fxmlLoader.getController();
         agendaViewController.setEntityManager(em);
         agendaViewController.cargarTodasPersonas();
-        
-        Scene scene = new Scene(rootMain,600,400);
+
+        Scene scene = new Scene(rootMain, 600, 400);
         primaryStage.setTitle("App Agenda");
         primaryStage.setScene(scene);
-        primaryStage.show(); 
+        primaryStage.show();
     }
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        launch(args);
-    }
-
+    
     @Override
     public void stop() throws Exception {
         em.close();
         emf.close();
-        try{
-            DriverManager.getConnection("jdbc:hsqldb:hsql;shutdown=true");
-        } catch(SQLException ex) {}
-    }    
+        try {
+            DriverManager.getConnection("jdbc:hsqldb:hsql://localhost:9001/BDAgenda");
+        } catch (SQLException ex) {
+        }
+    }
+
+    public static void main(String[] args) {
+        launch(args);
+    }
 }
